@@ -1,2 +1,5 @@
-# qr-backend
-# Backend de Qr-avon
+# Backend
+
+Aqui se encuentra la api de Avon-QR
+
+Estructura:
