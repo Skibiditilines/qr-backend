@@ -58,3 +58,29 @@ env\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+
+## Flujo de Trabajo con Git
+
+Para crear tu propia rama basada en `main` y subirla al repositorio, sigue estos pasos:
+
+1.  **Asegúrate de estar en la rama main y tener los últimos cambios:**
+    ```bash
+    git checkout main
+    git pull origin main
+    ```
+
+2.  **Crea una nueva rama:**
+    ```bash
+    git checkout -b <nombre-de-tu-rama>
+    ```
+
+3.  **Realiza tus cambios y haz commit:**
+    ```bash
+    git add .
+    git commit -m "Descripción de los cambios"
+    ```
+
+4.  **Sube tu rama al repositorio remoto:**
+    ```bash
+    git push origin <nombre-de-tu-rama>
+    ```
