@@ -58,3 +58,51 @@ env\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+
+## Ejecución en Local
+
+Una vez instaladas las dependencias, sigue estos pasos para correr la API:
+
+1.  **Configura las variables de entorno:**
+    Crea un archivo `.env` dentro de la carpeta `api/` con el siguiente contenido:
+    ```env
+    DATABASE_URL=tu_url_de_neon
+    CLOUDINARY_CLOUD_NAME=tu_cloud_name
+    CLOUDINARY_API_KEY=tu_api_key
+    CLOUDINARY_API_SECRET=tu_api_secret
+    ```
+
+2.  **Inicia el servidor:**
+    Entra en la carpeta `api/` y ejecuta:
+    ```bash
+    cd api
+    uvicorn app.main:app --reload
+    ```
+
+La API estará disponible en `http://127.0.0.1:8000`. Puedes acceder a la documentación interactiva en `http://127.0.0.1:8000/docs`.
+
+## Flujo de Trabajo con Git
+
+Para crear tu propia rama basada en `main` y subirla al repositorio, sigue estos pasos:
+
+1.  **Asegúrate de estar en la rama main y tener los últimos cambios:**
+    ```bash
+    git checkout main
+    git pull origin main
+    ```
+
+2.  **Crea una nueva rama:**
+    ```bash
+    git checkout -b <nombre-de-tu-rama>
+    ```
+
+3.  **Realiza tus cambios y haz commit:**
+    ```bash
+    git add .
+    git commit -m "Descripción de los cambios"
+    ```
+
+4.  **Sube tu rama al repositorio remoto:**
+    ```bash
+    git push origin <nombre-de-tu-rama>
+    ```
