@@ -6,6 +6,9 @@ from app.schemas.user import UserLogin, Token
 from app.services.hash_service import verify_password
 from app.core.security import create_access_token
 
+from datetime import timedelta, datetime, timezone
+from app.core.config import settings
+
 router = APIRouter(prefix="/users", tags=["users"])
 
 @router.post("/login", response_model=Token)
@@ -32,12 +35,18 @@ def login(user_data: UserLogin, db: Session = Depends(get_db)):
             detail="Cuenta desactivada"
         )
     
+    # Calcular expiración
+    access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+    expire_datetime = datetime.now(timezone.utc) + access_token_expires
+
     # Generar el Token
     access_token = create_access_token(
-        data={"sub": db_user.account_user}
+        data={"sub": db_user.account_user, "type": db_user.account_type.value},
+        expires_delta=access_token_expires
     )
         
     return {
         "access_token": access_token,
-        "token_type": "bearer"
+        "account_type": db_user.account_type.value,
+        "exp": expire_datetime
     }

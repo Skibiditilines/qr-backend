@@ -26,9 +26,12 @@ class UserLogin(BaseModel):
             
         return v
 
+from datetime import datetime
+
 class Token(BaseModel):
     access_token: str
-    token_type: str
+    account_type: str
+    exp: datetime
 
 class TokenData(BaseModel):
     username: Optional[str] = None
