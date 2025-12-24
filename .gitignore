@@ -1,8 +1,21 @@
-# variables de entorno
+# Virtual environment
+venv/
 .env
 
-# archivos de cache
-__pycache__
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
 # archivos de entorno
 /env
+
+# Tests & coverage
+.pytest_cache/
+.coverage
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
